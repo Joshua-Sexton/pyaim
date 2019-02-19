@@ -6,18 +6,22 @@ from pyscf import fci, ao2mo, mcscf, lib
 from pyscf import scf as mole_scf
 from pyscf.tools import wfn_format
 
-name = 'gamma_cas'
+name = 'cadena_cas'
 
 cell = gto.Cell()
 cell.incore_anyway = True
 cell.atom='''
-  H 0.000000000000   0.000000000000   0.000000000000
-  H 1.000000000000   0.000000000000   0.000000000000
+  H  0.000000000000   0.000000000000   0.000000000000
+  H  1.000000000000   0.000000000000   0.000000000000
+  H  2.000000000000   0.000000000000   0.000000000000
+  H  3.000000000000   0.000000000000   0.000000000000
+  H  4.000000000000   0.000000000000   0.000000000000
+  H  5.000000000000   0.000000000000   0.000000000000
 '''
 cell.basis = 'def2-svp'
 cell.precision = 1e-12
 cell.dimension = 1
-cell.a = [[2,0,0],[0,1,0],[0,0,1]]
+cell.a = [[6,0,0],[0,1,0],[0,0,1]]
 cell.unit = 'A'
 cell.verbose = 4
 cell.build()

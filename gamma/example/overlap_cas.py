@@ -2,8 +2,8 @@
 
 from pyaim.gamma import aom
 
-name = 'gamma_cas.chk'
-natoms = 2
+name = 'cadena_cas.chk'
+natoms = 6
 
 ovlp = aom.Aom(name)
 ovlp.verbose = 4
@@ -15,7 +15,7 @@ ovlp.betafac = 0.4
 ovlp.bnpang = 3074
 ovlp.biqudr = 'legendre'
 ovlp.bmapr = 'exp'
-ovlp.orbs = 2
+ovlp.orbs = 6
 ovlp.cas = True
 ovlp.corr = False
 for i in range(natoms):

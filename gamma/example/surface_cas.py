@@ -2,8 +2,8 @@
 
 from pyaim.gamma import surf
 
-name = 'gamma_cas.chk'
-natm = 2
+name = 'cadena_cas.chk'
+natm = 6
 
 surface = surf.BaderSurf(name)
 surface.rmaxsurf = 10

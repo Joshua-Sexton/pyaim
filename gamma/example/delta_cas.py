@@ -8,8 +8,8 @@ from pyscf import lib, dft
 
 log = lib.logger.Logger(sys.stdout, 4)
     
-name = 'gamma_cas.chk'
-atm = [0,1]
+name = 'cadena_cas.chk'
+atm = [1,5]
 
 with h5py.File(name+'.h5') as f:
     idx = 'ovlp'+str(atm[0])

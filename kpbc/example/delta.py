@@ -21,8 +21,8 @@ with h5py.File(name+'.chk.h5') as f:
     idx = 'ovlp'+str(atm[1])
     aom2 = f[idx+'/aom'].value
 
-delta = 4*numpy.einsum('ij,ji->', aom1, aom2)
-log.info('Delta %f for pair %d %d' %  (delta, atm[0], atm[1]))
+delta = 4*numpy.einsum('ij,ji->', aom1, aom2.conj())
+log.info('Delta %s for pair %d %d' %  (delta, atm[0], atm[1]))
 
 log.info('DAFH for atom %d', atm[0])
 natocc, natorb = numpy.linalg.eigh(aom1)

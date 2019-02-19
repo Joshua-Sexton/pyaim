@@ -25,7 +25,6 @@ if sys.version_info >= (3,):
     unicode = str
 
 # TODO: screaning of points
-# Temporal only occupied orbitals
 def mos(self,x):
     x = numpy.reshape(x, (-1,3))
     ao = dft.numint.eval_ao(self.cell, x, deriv=0)

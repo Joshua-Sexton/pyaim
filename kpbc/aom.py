@@ -25,7 +25,6 @@ if sys.version_info >= (3,):
     unicode = str
 
 # TODO: screaning of points
-# Temporal only occupied orbitals
 def mos(self,x):
     x = numpy.reshape(x, (-1,3))
     ao = dft.numint.eval_ao_kpts(self.cell, x, kpts=self.kpts, deriv=0)
@@ -348,7 +347,8 @@ class Aom(lib.StreamObject):
         for i in range(self.nmo):
             for j in range(i+1):
                 self.aom[i,j] = aoma[idx]+aomb[idx] 
-                self.aom[j,i] = self.aom[i,j].conj()
+                if (i != j):
+                    self.aom[j,i] = self.aom[i,j].conj()
                 idx += 1
         norm = float(1.0/self.nkpts)
         self.aom = self.aom*norm

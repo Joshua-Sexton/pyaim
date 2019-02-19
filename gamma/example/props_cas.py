@@ -2,8 +2,8 @@
 
 from pyaim.gamma import basin
 
-name = 'gamma_cas.chk'
-natm = 2
+name = 'cadena_cas.chk'
+natm = 6
 
 props = basin.Basin(name)
 props.verbose = 4

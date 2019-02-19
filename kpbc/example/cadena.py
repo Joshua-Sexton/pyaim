@@ -6,22 +6,30 @@ from pyscf import lib
 from pyscf import scf as mole_scf
 from pyscf.tools import wfn_format
 
-name = 'kpts_hf'
+name = 'cadena'
 
 cell = gto.Cell()
 cell.atom='''
   H 0.000000000000   0.000000000000   0.000000000000
   H 1.000000000000   0.000000000000   0.000000000000
+  H 2.000000000000   0.000000000000   0.000000000000
+  H 3.000000000000   0.000000000000   0.000000000000
+  H 4.000000000000   0.000000000000   0.000000000000
+  H 5.000000000000   0.000000000000   0.000000000000
+  H 6.000000000000   0.000000000000   0.000000000000
+  H 7.000000000000   0.000000000000   0.000000000000
+  H 8.000000000000   0.000000000000   0.000000000000
+  H 9.000000000000   0.000000000000   0.000000000000
 '''
 cell.basis = 'def2-svp'
 cell.precision = 1e-12
 cell.dimension = 1
-cell.a = [[2,0,0],[0,1,0],[0,0,1]]
+cell.a = [[10,0,0],[0,1,0],[0,0,1]]
 cell.unit = 'A'
 cell.verbose = 4
 cell.build()
 
-nk = [3,1,1]
+nk = [8,1,1]
 kpts = cell.make_kpts(nk)
 kpts -= kpts[0] # Shift to gamma
 scf.chkfile.save_cell(cell, name+'.chk')
