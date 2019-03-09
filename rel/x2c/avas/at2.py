@@ -238,10 +238,11 @@ def kernel_casci(self,ndets,strs,h1e,eri_mo, e_core):
 if __name__ == '__main__':
     from pyscf import gto, scf, x2c, ao2mo, mcscf
 
+    name = 'at2_x2c_ci'
     mol = gto.Mole()
     mol.atom = '''
-    Pb 0.0 0.0 0.000
-    O  0.0 0.0 1.922
+At 0.0 0.0  0.000
+At 0.0 0.0  3.100
     '''
     mol.basis = 'dzp-dk'
     mol.verbose = 4
@@ -251,16 +252,17 @@ if __name__ == '__main__':
     mol.build()
 
     mf = x2c.RHF(mol)
+    mf.chkfile = name+'.chk'
     mf.with_x2c.basis = 'unc-ano'
     dm = mf.get_init_guess() + 0.1j
     mf.kernel(dm)
 
-    ncore = 82
+    ncore = 156
     #norb = 14
     #nelec = 8
     #coeff = mf.mo_coeff
-    aolst = ['Pb 6p', 'O 2p']
-    norb, nelec, coeff = avas.avas(mf, aolst, ncore=ncore, threshold_occ=0.1, threshold_vir=0.01)
+    aolst = ['At 6p', 'At 6s']
+    norb, nelec, coeff = avas.avas(mf, aolst, ncore=ncore, threshold_occ=0.1, threshold_vir=1e-2)
 
     lib.logger.TIMER_LEVEL = 3
 
